@@ -6,9 +6,11 @@ Resources:
   LambdaJavaFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: .
       Handler: com.api.LambdaJavaAPI
       Runtime: java11
+      Code:
+        S3Bucket: kjbuild
+        S3Key: LambdaJavaAPI.jar
       Events:
         HelloWorld:
           Type: Api

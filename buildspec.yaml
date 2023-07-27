@@ -15,3 +15,6 @@ artifacts:
   files:
     - target/LambdaJavaAPI.jar
     - template.yaml
+post_build:
+  commands:
+    - aws s3 cp target/LambdaJavaAPI.jar s3://kjbuild
