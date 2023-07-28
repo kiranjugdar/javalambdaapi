@@ -11,10 +11,10 @@ phases:
     commands:
       - echo "Building Lambda function..."
       - mvn clean package
+      - sam package 
+        --template-file template.yaml 
+        --s3-bucket kjbuild 
+        --output-template-file packaged-template.yaml
 artifacts:
   files:
-    - target/LambdaJavaAPI.jar
-    - template.yaml
-post_build:
-  commands:
-    - aws s3 cp target/LambdaJavaAPI.jar s3://kjbuild/
+    - packaged-template.yaml
