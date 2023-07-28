@@ -2,13 +2,13 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
 
 Resources:
-  MyLambdaFunction:
+  LambdaJavaAPIFunction:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: MyLambdaFunction
+      FunctionName: LambdaJavaAPIFunction
       Runtime: java11
       Handler: com.api.LambdaJavaAPI::handleRequest
-      CodeUri: target/my-lambda-function.jar  # Replace with the path to your Lambda JAR
+      CodeUri: target/LambdaJavaAPI.jar  # Replace with the path to your Lambda JAR
       MemorySize: 256
       Timeout: 10
       Role: !GetAtt MyLambdaRole.Arn
